@@ -1,4 +1,6 @@
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     position: relative;
 }
@@ -21,17 +23,27 @@ body {
     backdrop-filter: blur(5px);
 }
 
+.logo{
+    height: 66px;
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 250px;
+    max-width: 100%;
+}
 
 .menu ul {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    align-items: center;
     color: var(--p5);
 }
 
 .menu ul li {
     text-transform: uppercase;
-    padding: 20px 10px;
+    padding: 10px 10px;
     flex-wrap: nowrap;
 }
 
@@ -51,29 +63,16 @@ body {
 }
 
 .menu-esquerda .whatsapp {
-    position: absolute;
-    top:11px;
-    left: 16px;
-}
-
-.menu-esquerda .btn::before {
-    content: '';
-    width: 1px;
-    height: 50px;
-    background: var(--p3);
-    position: absolute;
-    left: -10px;
-    top: -5px;
-}
-
-.menu-esquerda .btn {
-    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 6px 10px; 
 }
 
 .menu-esquerda li a:nth-child(1) {
     position: relative;
 }
-
 
 .menu-esquerda ul li::after {
     content: 'teste';
@@ -83,7 +82,6 @@ body {
     position: absolute;
     top: 5px;
 }
-
 
 .texto-intro {
     padding-top: 60px;
@@ -98,7 +96,6 @@ body {
 
 .texto-intro p {
     padding-bottom: 20px;
-
 }
 
 .texto-intro p span {
@@ -116,57 +113,100 @@ body {
     transition: .3s;
 }
 
-.hamburguer {
-    position: absolute;
-    z-index: 101;
-    top: 1rem;
-    right: 1rem;
-    padding: 4px;
-    border: none;
-    background: rgba(255, 255, 255, 0.574);
-    cursor: pointer;
-  }
-
-  .closeIcon {
+.hamburguer{
     display: none;
-  }
+}
 
-  .menu {
+.menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     border-bottom: 1px solid var(--p3);
+    min-height: 65px;
 }
 
-  .menu-hamburguer {
-    position: fixed;
-    transform: translateY(-100%);
-    transition: transform 0.2s;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    background: rgba(80, 72, 72, 0.415);
-    color: white;
-    list-style: none;
-    padding-top: 4rem;
-  }
-
-  .showMenu {
-    transform: translateY(0);
-  }
+.menu-hamburguer{
+    display: flex;
+    flex-direction: row;
+    position: initial;
+    gap: 1rem;
+    flex: 1;
+    justify-content: space-around;
+}
 
 
 @media (max-width:950px) {
+   
     .texto-intro h1 {
         font-size: 3.5rem;
     }
 
+    .menu{ flex-direction: column;}
+   
     .menu ul li {
         padding: 0px 5px;
+    }
+
+    .hamburguer {
+        display: block;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 101;
+        top: 1rem;
+        right: 1rem;
+        padding: 4px;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        background: rgba(255, 255, 255, 0.574);
+        cursor: pointer;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 1rem;
+    }
+
+    .closeIcon {
+        display: none;
+    }
+
+    .menu-hamburguer {
+        position: absolute;
+        transform: translateY(-100%);
+        transition: transform 0.2s;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background:  rgba(190, 6, 6, 0.9); 
+        color: white;
+        list-style: none;
+        padding-top: 4rem;
+        flex-direction: column;
+        height: fit-content;
+        padding-bottom: 3rem; 
+    }
+
+    .menu-hamburguer .menu-centro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        gap: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .menu-hamburguer .menu-esquerda{
+        display: flex;
+        justify-content: center;
+    }
+
+    .showMenu {
+        transform: translateY(0);
     }
 
 }
